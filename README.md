@@ -1,4 +1,4 @@
-# Touch Typing Practice (CLI)
+# Code FLow (CLI)
 
 ## 📖 Description
 This program is built in **C++** and runs in the command-line interface (CLI).  
