@@ -1,15 +1,33 @@
-Descripiton :
--> The program is build in cpp and allows the user to interact with it cli
+# Touch Typing Practice (CLI)
 
-What does the program do :
--> It is a program used to practice touch typing
--> It measures your typing speed and accuracy
+## 📖 Description
+This program is built in **C++** and runs in the command-line interface (CLI).  
+It allows users to practice **touch typing** while measuring their **speed** and **accuracy**.
 
-Functions :
--> There are three levels having diffrent word bank and require diifrent speed and accuracy to clear
--> The diffculty level increase with levels ,1 being the easy and simple to clear while the third level is the most diffuclt and hard to beat
--> If you are not able to complete a level you are pushed back to the last level 
--> Once you clear all three levels , the game ends and you get a message of congrats
+---
 
+## 🎯 What the Program Does
+- Provides an interactive typing practice environment.  
+- Tracks typing speed (words per minute) and accuracy (percentage of correct characters).  
+- Helps users improve their typing skills through progressive challenges.  
+
+---
+
+## ⚙️ Features
+- **Three Levels of Difficulty**  
+  - Level 1: Easy word bank, simple speed/accuracy requirements.  
+  - Level 2: Moderate difficulty with stricter requirements.  
+  - Level 3: Hardest level with challenging word bank and high accuracy demands.  
+
+- **Progression System**  
+  - Fail a level → pushed back to the previous one.  
+  - Clear all three levels → receive a congratulatory message 🎉.  
+
+---
+
+## 🚀 How to Run
+1. Compile the program:
+   ```bash
+   g++ typing_game.cpp -o typing_game
 
 
