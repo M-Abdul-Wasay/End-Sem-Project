@@ -8,6 +8,18 @@
 #include <vector>
 #include <limits>
 #include <atomic>
+// ---------------- COLORS ----------------
+#define RESET   "\033[0m"
+#define RED     "\033[31m"
+#define GREEN   "\033[32m"
+#define YELLOW  "\033[33m"
+#define BLUE    "\033[34m"
+#define MAGENTA "\033[35m"
+#define CYAN    "\033[36m"
+#define WHITE   "\033[37m"
+#define BOLD    "\033[1m"
+
+
 
 using namespace std;
 using namespace std::chrono;
@@ -45,62 +57,23 @@ void levels(vector<string>, int);
 // ---------------- LEVELING SYSTEM ----------------
 void levelling_system()
 {
-
     if (error_count == 0) {
-        cout << "Accuracy: *****" << endl;
-        if (unlock_2 == 1) {
-            unlock_3 = 1;                                    // unlocking level 3
-        }
-        if (unlock_2 == 0) {
-            cout << "\t------Level 2------\t" << endl;       // move to level 2 if not unlocked
-            levels(words_medium, 20);
-            cout << endl;
-        }
-        else if (unlock_3 == 1) {                             // move to level 3 if level 2 cleared
-            cout << "\t------Level 3------\t" << endl;
-            levels(words_hard, 30);
-            cout << endl;
-        }
-        unlock_2 = 1;                                       // unlocking level 2
+        cout <<GREEN<< "Accuracy: *****\n";
+        unlock_2 = 1;
+        unlock_3 = 1;
     }
-    else if (error_count >= 1 && error_count <= 2) {
-        cout << "Accuracy: ****" << endl;
-        unlock_2 = 1;                                       // unlocking level 2
-        if (unlock_3 == 0) {                                 // move to level 2 if level 3 is locked
-            cout << "\t------Level 2------\t" << endl;
-            levels(words_medium, 20);
-            cout << endl;
-        }
+    else if (error_count <= 2) {
+        cout <<GREEN<< "Accuracy: ****\n";
+        unlock_2 = 1;
     }
-    else if (error_count >= 3 && error_count <= 5) {
-        cout << "Accuracy: ***" << endl;
-        unlock_3 = 0;                                       // lock level 3
-        if (unlock_2 == 1) {                                 // move to level 2 if it is unlocked
-            cout << "\t------Level 2------\t" << endl;
-            levels(words_medium, 20);
-            cout << endl;
-        }
-        else if (unlock_2 == 0) {                          // move to level 1 if level 2 is locked
-            cout << "\t------Level 1------\t" << endl;
-            levels(words_easy, 10);
-            cout << endl;
-        }
+    else if (error_count <= 5) {
+        cout << GREEN << "Accuracy: ***\n";
+        unlock_3 = 0;
     }
-    else if (error_count >= 6 && error_count <= 8) {
-        cout << "Accuracy: **" << endl;
-        unlock_2 = 0;                                       // lock level 2
-        unlock_3 = 0;                                       // lock level 3
-        cout << "\t------Level 1------\t" << endl;
-        levels(words_easy, 10);                              // return the user to level 1   
-        cout << endl;
-    }
-    else if (error_count >= 9) {
-        cout << "Accuracy: *" << endl;
-        unlock_2 = 0;                                       // lock level 2
-        unlock_3 = 0;                                       // lock level 3
-        cout << "\t------Level 1------\t" << endl;
-        levels(words_easy, 10);                             // return the user to level 1 
-        cout << endl;
+    else {
+        cout << GREEN << "Accuracy: ** or *\n";
+        unlock_2 = 0;
+        unlock_3 = 0;
     }
 }
 
@@ -113,7 +86,7 @@ void levels(vector<string> word_bank, int total_number)
     for (int i = 0; i < total_number; i++)
         selected.push_back(word_bank[rand() % word_bank.size()]);
 
-    for (auto& w : selected) cout << w << " ";
+    for (auto& w : selected) cout <<BOLD<< w << " ";
     cout << "\nPress Enter to start...";
     press_enter_to_start();
 
@@ -152,7 +125,7 @@ void level_timed(vector<string> word_bank, int time_limit)
     for (int i = 0; i < 200; i++)
         selected.push_back(word_bank[rand() % word_bank.size()]);
 
-    for (auto& w : selected) cout << w << " ";
+    for (auto& w : selected) cout << BOLD << w << " ";
     cout << "\nType for " << time_limit << " seconds\n";
     cout << "Press Enter to start...";
     press_enter_to_start();
@@ -201,14 +174,14 @@ int main()
     srand(time(nullptr));//this make the wordbank random with the today time
     //everyday time change so does the sequence of the word_bank
 
-    cout << "Codeflow aims to help its users become accurate and fast typists, but hold your horses becuase speed is nothing without consistency. To be the best typist you can be, it is essential to first focus on your accuracy and then increase your speed from there on. " << endl;
-    cout << endl;
-    cout << "Codeflow has 3 difficulty levels (Noob, Pro, Hacker)." << endl;
-    cout << "By achieving 4 Stars in accuracy in level 1 you can unlock level 2." << endl;
-    cout << "By achieving 5 Stars in accuracy in any level you can unlock levels 2 and 3." << endl;
-    cout << "Level 3 can only be unlocked by achieveing 5 stars in accuracy." << endl;
-    cout << "If your accuracy is reduced in later stages you can be DEPORTED back to level 1 or lock higher difficulty levels." << endl;
-    cout << "With that said goodluck!" << endl;
+    cout << CYAN<<"Codeflow aims to help its users become accurate and fast typists, but hold your horses becuase speed is nothing without consistency. To be the best typist you can be, it is essential to first focus on your accuracy and then increase your speed from there on. " << endl;
+    cout << CYAN << endl;
+    cout << CYAN << "Codeflow has 3 difficulty levels (Noob, Pro, Hacker)." << endl;
+    cout << CYAN << "By achieving 4 Stars in accuracy in level 1 you can unlock level 2." << endl;
+    cout << CYAN << "By achieving 5 Stars in accuracy in any level you can unlock levels 2 and 3." << endl;
+    cout << CYAN << "Level 3 can only be unlocked by achieveing 5 stars in accuracy." << endl;
+    cout << CYAN << "If your accuracy is reduced in later stages you can be DEPORTED back to level 1 or lock higher difficulty levels." << endl;
+    cout << CYAN << "With that said goodluck!" << endl;
 
     cout << "Choose mode (Words / Time): ";
     string choice;
@@ -226,9 +199,9 @@ int main()
         if (unlock_3) level_timed(words_hard, 15);
     }
     else {
-        cout << "Invalid choice\n";
+        cout << CYAN << "Invalid choice\n";
     }
 
-    cout << "Game finished.\n";
+    cout << CYAN << "Game finished.\n";
     return 0;
 }
