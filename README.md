@@ -1,42 +1,32 @@
-# ⌨️ Code Flow (CLI)
+⌨️ Code Flow (Desktop App)
+📖 Description
 
-## 📖 Description
-**Code Flow** is a C++ program that runs in the **command-line interface (CLI)**.  
-It allows users to practice **touch typing** while measuring their **speed**, **accuracy**, and includes a **dedicated Timer Mode** inspired by platforms like Monkeytype.
+Code Flow is a desktop typing practice application built using Java and JavaFX. The application helps users improve their typing speed and accuracy through an interactive graphical interface.
 
----
+The program provides structured typing exercises where users type given text while the system measures Words Per Minute (WPM) and typing accuracy in real time. It also includes a Timer Mode that allows users to test their typing performance within a fixed time limit, similar to popular typing platforms.
 
-## 🎯 What the Program Does
-- Provides an interactive typing practice environment.  
-- Tracks typing speed (**words per minute**) and accuracy (**percentage of correct characters**).  
-- Offers a **Timer Mode** for time-bound challenges.  
-- Helps users improve typing skills through progressive difficulty levels.  
+The application features multiple difficulty levels, a progression system, and performance statistics, making it useful for both beginners and experienced typists who want to practice and track their improvement.
 
----
+This project demonstrates the use of Object-Oriented Programming (OOP) principles, event-driven programming, and GUI development using JavaFX.
 
-## ⚙️ Features
-### 📝 Typing Practice
-- **Three Levels of Difficulty**
-  - Level 1: Easy word bank, simple speed/accuracy requirements.  
-  - Level 2: Moderate difficulty with stricter requirements.  
-  - Level 3: Hardest level with challenging word bank and high accuracy demands.  
+⚙️ Features
 
-- **Progression System**
-  - Fail a level → pushed back to the previous one.  
-  - Clear all three levels → receive a congratulatory message 🎉.  
+📝 Typing Practice Mode with multiple difficulty levels
 
----
+⏱ Timer Mode (15s, 30s, 60s typing tests)
 
-### ⏱️ Timer Mode (Separate Feature)
-- Functions like Monkeytype’s timed tests.  
-- Choose a countdown duration (e.g., 15s, 30s, 60s).  
-- Measures typing speed and accuracy **within the time limit**.  
-- Adds pressure and competitiveness to practice sessions.  
-- Perfect for users who want to simulate real typing test conditions.  
+📊 Real-time WPM calculation
 
----
+🎯 Typing accuracy measurement
 
-## 🚀 How to Run
-1. Compile the program:
-   ```bash
-   g++ typing_game.cpp -o typing_game
+📈 Performance statistics after each session
+
+🖥 Graphical user interface built with JavaFX
+
+🛠 Technologies Used
+
+Java
+
+JavaFX
+
+Object-Oriented Programming
